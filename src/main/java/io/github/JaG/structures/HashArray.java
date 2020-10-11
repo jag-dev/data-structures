@@ -1,4 +1,4 @@
-package io.github.jag.structures;
+package io.github.JaG.structures;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,7 +47,16 @@ public class HashArray<E, Object> {
      * @param key to check for
      * @return true for yes, false for no
      */
-
+    public boolean contains(E key) { return indexHolder.contains(key); }
+    /*
+     * Use .clear() to clear the HashArray
+     * @param none
+     * @return void
+     */
+    public void clear() {
+        data.clear();
+        indexHolder.clear();
+    }
     /*
      * Use getIndex() to get the current index of
      * @param key to get index of
