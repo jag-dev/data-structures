@@ -2,6 +2,7 @@ package io.github.JaG.structures;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class HashArray<E, Object> {
     private HashMap<E, Object> data;
@@ -19,6 +20,17 @@ public class HashArray<E, Object> {
     public void put(E key, Object value) {
         indexHolder.add(key);
         data.put(key, value);
+    }
+    /*
+     * Use .insert() to put a list of keys into the HashArray with the same value
+     * @param List<E> list of keys to add, Object value to assign to all
+     * @return void
+     */
+    public void insert(List<E> keys, Object value) {
+        for (E key : keys) {
+            data.put(key, value);
+            indexHolder.add(key);
+        }
     }
     /*
      * Use getValue() to return a value either an an int index, or by key
@@ -58,10 +70,21 @@ public class HashArray<E, Object> {
         indexHolder.clear();
     }
     /*
-     * Use getIndex() to get the current index of
+     * Use getIndex() to get the current index of the HashArray
      * @param key to get index of
      * @return int index
      */
     public int getIndex(E key) { return indexHolder.indexOf(data.get(key)); }
-
+    /*
+     * Use getSize() to get current size of HashArray
+     * @param none
+     * @return int size of HashArray
+     */
+    public int getSize() { return indexHolder.size(); }
+    /*
+     * Use keyList() to get an ArrayList of they current keys
+     * @param none
+     * @return ArrayList<E> of all keys in HashMap
+     */
+    public ArrayList<E> keyList() { return indexHolder; }
 }
